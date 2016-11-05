@@ -1,4 +1,5 @@
 #do some kind of paralelism
 #create a config file outside the script
+#create email stuff outside the script
 #correct tmp stuff
 #do smtp stuff externally with auth
