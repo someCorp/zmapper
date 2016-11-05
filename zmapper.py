@@ -292,10 +292,10 @@ def composeMail(mode="text"):
     \n\nAdjunto Resultados del escaneo usando zmap:\n\n
 --<br>
 Atte/Kindly
-CSIRT/abz Equipo/Team
+Zmapper
 
 Fono/Phone: +50 33333333
-Email: soc@somedomain.tld
+Email: zmapper@somedomain.tld
 """
   elif mode == "html":
     msg = """\
@@ -308,9 +308,9 @@ Hola!<br><br>
 <p>
 --<br>
 Atte/Kindly<br><br>
-CSIRT/abz Equipo/Team<br>
+Zmapper<br>
 Fono/Phone: +50 33333333<br>
-Email: soc@somedomain.tld<br>
+Email: zmapper@somedomain.tld<br>
 Web: http://www.somepage.tld<br>
 </p><br>
 </body><br>
