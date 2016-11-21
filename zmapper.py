@@ -94,13 +94,13 @@ except ImportError:
 #  some constants
 zmapIface = "eth1"
 zmapSourcePortRange = "1024-65535"
-zmapSourceAddress = "189.145.6.4"
+zmapSourceAddress = "163.247.4.13"
 zmapMacOfRouter = "c0:67:af:6c:71:80"
 zmapMaxFailures = "10000000"
 zmapStaticArguments = "--disable-syslog --quiet -v0"
 zmapOutFields = "--output-fields=saddr,sport"
 zmapProbeNumber = "-P1"
-mailFrom = "zmapper@somedomain.tld"
+mailFrom = "zmapper@interior.gov.cl"
 smtpServer = "localhost"
 smtpUser = ""
 smtpPass = ""
@@ -111,14 +111,13 @@ def checkForZmap():
   hashToReturn = {}
   zmapFlag = False
   zmapBin = "/dev/null"
-  try:
-    hashToReturn['zmapBin'] = find_executable('zmap')
-    if hashToReturn['zmapBin'] != None:
-      hashToReturn['zmapFlag'] = True
-  except OSError:
-    hashToReturn['zmapFlag'] = zmapFlag
-    hashToReturn['zmapBin'] = zmapBin
+  zmapBin = find_executable('zmap')
+  if zmapBin != None:
+    zmapFlag = True
+  hashToReturn['zmapFlag'] = zmapFlag
+  hashToReturn['zmapBin'] = find_executable('zmap')
   return hashToReturn
+
 
 
 def getArgs():
@@ -231,10 +230,16 @@ def getListOfZmapeds(someDir="/tmp"):
       listOfFilesWithData = listOfFilesWithData + (fileWithPath, )
   return listOfFilesWithData
 
-
 def doTheZmapStuff(cmd="/bin/false"):
   """ this function do something """
+  bashBin = find_executable('bash')
+  if bashBin == None:
+    bashBin="/bin/bash"
+  cmd=bashBin + " -c " + "\"" + cmd + "\""
+  print cmd
   os.system(cmd)
+
+
 
 
 def sortDataPerIp(netToSortPerIp='1.1.1.0/16', zmapDestPortRange=range(0, 0, 1), someFiles="/dev/null", someDir="/tmp"):
@@ -292,10 +297,10 @@ def composeMail(mode="text"):
     \n\nAdjunto Resultados del escaneo usando zmap:\n\n
 --<br>
 Atte/Kindly
-Zmapper
+CSIRT/RCE Equipo/Team
 
-Fono/Phone: +50 33333333
-Email: zmapper@somedomain.tld
+Fono/Phone: +56 2 26904343
+Email: soc@interior.gov.cl
 """
   elif mode == "html":
     msg = """\
@@ -308,10 +313,10 @@ Hola!<br><br>
 <p>
 --<br>
 Atte/Kindly<br><br>
-Zmapper<br>
-Fono/Phone: +50 33333333<br>
-Email: zmapper@somedomain.tld<br>
-Web: http://www.somepage.tld<br>
+CSIRT/RCE Equipo/Team<br>
+Fono/Phone: +56 2 26904343<br>
+Email: soc@interior.gov.cl<br>
+Web: http://www.csirt.gob.cl<br>
 </p><br>
 </body><br>
 </html><br>
@@ -372,7 +377,7 @@ def main():
     generalStartTime = datetime.datetime.today()
     asRoot()
     zmapCheckResults = checkForZmap()
-    if zmapCheckResults['zmapBin'] == None:
+    if zmapCheckResults['zmapFlag'] != True:
       errMsg = "\nzmap not found!!\n"
       sys.stderr.write(errMsg)
       sys.exit(3333)
