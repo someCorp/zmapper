@@ -1,5 +1,5 @@
 # zmapper
-# a wrapper around to zmap to scan an range of ports
+# a wrapper around to zmap to scan a range of ports
 # and send a compressed csv via email with the results
 
 /some/place/zmapper.py --destinations someWhoCares@somedomain.tld --net2Scan somePublicNet/CIDRMask -sp N -ep N+1
