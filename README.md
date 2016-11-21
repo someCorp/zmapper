@@ -27,6 +27,8 @@ i suggest start with small nets and small ranges and start to incresing the scop
 
 
 
+
+
 We offer these suggestions for researchers conducting Internet-wide scans as guidelines for good Internet citizenship.
 
     Coordinate closely with local network administrators to reduce risks and handle inquiries
@@ -38,3 +40,6 @@ We offer these suggestions for researchers conducting Internet-wide scans as gui
     Spread scan traffic over time or source addresses when feasible
 
 It should go without saying that scan researchers should refrain from exploiting vulnerabilities or accessing protected resources, and should comply with any special legal requirements in their jurisdictions.
+
+
+ps: external MTA , is under development, the script was testested on linux with pythn 2.7.x
