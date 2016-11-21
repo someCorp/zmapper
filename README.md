@@ -12,7 +12,7 @@ crontab -l
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 @monthly       /some/place/zmapper.py --destinations someWhoCares@somedomain.tld --net2Scan somePublicNet/CIDRMask -sp N -ep N+1
 
-after a while, depending on how big is/was the net 2 scan and the how big is/was the port range to scan , you'd get a compressed csv file
+after a while, depending on how big is/was the net 2 scan and the how big is/was the port range to scan , you'd get a compressed csv file, with the following contents
 
 "IP","1","2","3","4","5","6","7","8","9","10"
 "somePublicIp","close","close","close","close","close","close","close","close","close","close"
