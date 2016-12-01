@@ -94,13 +94,13 @@ except ImportError:
 #  some constants
 zmapIface = "eth1"
 zmapSourcePortRange = "1024-65535"
-zmapSourceAddress = "163.247.4.13"
-zmapMacOfRouter = "c0:67:af:6c:71:80"
+zmapSourceAddress = "somePublicIP"
+zmapMacOfRouter = "someHwaddrOfPublicRouter"
 zmapMaxFailures = "10000000"
 zmapStaticArguments = "--disable-syslog --quiet -v0"
 zmapOutFields = "--output-fields=saddr,sport"
 zmapProbeNumber = "-P1"
-mailFrom = "zmapper@interior.gov.cl"
+mailFrom = "zmapper@somedomain.tld"
 smtpServer = "localhost"
 smtpUser = ""
 smtpPass = ""
@@ -297,10 +297,7 @@ def composeMail(mode="text"):
     \n\nAdjunto Resultados del escaneo usando zmap:\n\n
 --<br>
 Atte/Kindly
-CSIRT/RCE Equipo/Team
 
-Fono/Phone: +56 2 26904343
-Email: soc@interior.gov.cl
 """
   elif mode == "html":
     msg = """\
@@ -313,10 +310,8 @@ Hola!<br><br>
 <p>
 --<br>
 Atte/Kindly<br><br>
-CSIRT/RCE Equipo/Team<br>
-Fono/Phone: +56 2 26904343<br>
-Email: soc@interior.gov.cl<br>
-Web: http://www.csirt.gob.cl<br>
+<br>
+Web: http://localhost<br>
 </p><br>
 </body><br>
 </html><br>
