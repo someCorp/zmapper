@@ -92,7 +92,7 @@ except ImportError:
 
 
 #  some constants
-zmapIface = "eth1"
+zmapIface = "ethN"
 zmapSourcePortRange = "1024-65535"
 zmapSourceAddress = "somePublicIP"
 zmapMacOfRouter = "someHwaddrOfPublicRouter"
@@ -295,7 +295,8 @@ def composeMail(mode="text"):
   if mode == "text":
     msg = """Hola!\
     \n\nAdjunto Resultados del escaneo usando zmap:\n\n
---<br>
+--
+<br>
 Atte/Kindly
 
 """
@@ -323,7 +324,7 @@ def sendFileByMail(someFile="/dev/null", server="localhost", authUser="someUser"
                    authPass="somePass", mailFrom="zmapper@somedomain.tld", mailTo="zmapper@somedomain.tld"):
   """ this function do something """
   try:
-    msg = MIMEMultipart('alternative')
+    msg = MIMEMultipart('mixed')
     subject = "Zmap Results"
     msg['Subject'] = subject
     msg['From'] = mailFrom
